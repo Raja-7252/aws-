@@ -19,15 +19,16 @@ phases:
       - pip install -r requirements.txt  # Install dependencies from requirements.txt
 
   build:
-    commands:
-      - echo "Running tests..."
-      - cd day14/simple-python-app/  # Adjust the path to match the directory structure in your repository
-      - echo "Current directory: $(pwd)"  # Log the current directory
-      - ls  # List files in the directory to verify the presence of expected files
-      - echo "Building Docker image..."
-      - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USERNAME" --password-stdin "$DOCKER_REGISTRY_URL"
-      - docker build -t "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/simple-python-flask-app:latest" .
-      - docker push "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/simple-python-flask-app:latest"
+  commands:
+    - echo "Running tests..."
+    - cd day14/simple-python-app/
+    - echo "Current directory: $(pwd)"
+    - ls
+    - echo "Building Docker image..."
+    - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USERNAME" --password-stdin "$DOCKER_REGISTRY_URL"
+    - docker build -t "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/simple-python-flask-app:latest" .
+    - docker push "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/simple-python-flask-app:latest"
+
 
   post_build:
     commands:
