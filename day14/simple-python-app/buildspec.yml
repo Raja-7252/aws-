@@ -9,12 +9,12 @@ phases:
   install:
     runtime-versions:
       python: 3.8
- pre_build:
-  commands:
-    - echo "Installing dependencies..."
-    - cd day14/simple-python-app  # Adjust the path to match the directory structure in your repository
-    - ls  # List files in the directory to verify the presence of requirements.txt
-    - pip install -r requirements.txt  # Install dependencies from requirements.txt
+  pre_build:
+    commands:
+      - echo "Installing dependencies..."
+      - cd day14/simple-python-app  # Adjust the path to match the directory structure in your repository
+      - ls  # List files in the directory to verify the presence of requirements.txt
+      - pip install -r requirements.txt  # Install dependencies from requirements.txt
 
   build:
     commands:
