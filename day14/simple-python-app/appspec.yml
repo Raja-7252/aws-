@@ -3,10 +3,10 @@ os: linux
 
 hooks:
   ApplicationStop:
-    - location: https://raw.githubusercontent.com/Raja-7252/aws-/master/day14/simple-python-app/scripts/stop_container.sh
+    - location: /path/to/day14/simple-python-app/stop-container.sh
       timeout: 300
       runas: root
   AfterInstall:
-    - location: https://raw.githubusercontent.com/Raja-7252/aws-/master/day14/simple-python-app/scripts/start_container.sh
+    - location: /path/to/day14/simple-python-app/start-container.sh
       timeout: 300
       runas: root
